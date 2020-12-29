@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import data from "./data";
+import App from "./App";
 
 const Todo = () => {
   return (
@@ -16,13 +17,21 @@ const Header = () => {
 
 const ToDoApp = () => {
   return data.map((item) => {
-    return <Cell id={item.id} about={item.About} done={item.Done} />;
+    return (
+      <section className="common">
+        <Cell id={item.id} about={item.About} done={item.Done} />
+      </section>
+    );
   });
 };
 
 const Cell = (props) => {
   const { id, about, done } = props;
-  return <h1>{about}</h1>;
+  return (
+    <div className="fragments">
+      <h1>{id}</h1>
+    </div>
+  );
 };
 
 export default Todo;
